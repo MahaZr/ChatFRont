@@ -9,12 +9,12 @@ export class CommentaireService {
 
   constructor(private http: HttpClient) {}
     public addComment(idEnv, idDest, corp){
-      return this.http.post<any>('http://localhost:3001/message/ajoutmsg/'+ idEnv +'/'+ idDest,corp);
+      return this.http.post<any>('http://localhost:3003/message/ajoutmsg/'+ idEnv +'/'+ idDest,corp);
       
     }
     
-    listerComment() {
-      return this.http.get<any>('http://localhost:3001/message/listermsg/'); 
+    listerComment(idEnv, idDest) {
+      return this.http.get<any>('http://localhost:3003/message/listermsg/'  +idEnv+'/'+ idDest); 
 
     }
 

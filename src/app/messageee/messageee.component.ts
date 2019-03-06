@@ -10,11 +10,11 @@ import { LoginService } from '../shared/services/login.service';
   styleUrls: ['./messageee.component.css']
 })
 export class MessageeeComponent implements OnInit {
-  public idArt = "";
+  public idDest= "";
   public art;
   public status = false;
   public corp:string;
-  public corpss = { corps : ""};
+  public corpss = { corp : ""};
   public mesge;
   public user;
   public userName;
@@ -25,16 +25,16 @@ export class MessageeeComponent implements OnInit {
     //let id = this.routes.snapshot.paramMap.get('id');
     this.routes.paramMap.subscribe((params: ParamMap) => {
       let id = params.get('id');
-      this.idArt = id;
-      this.user = this.auth.getUser();
+      this.idDest = id;
+      this.user = this.auth.userrr.use._id;
       console.log(this.user);
-      console.log(this.idArt);
+      console.log(this.idDest);
     });
 
 
    
 
-    this.message.listerComment( ).subscribe(file => {
+    this.message.listerComment(this.idDest,this.user ).subscribe(file => {
       this.message = file;
       console.log(file);
     });
@@ -52,8 +52,8 @@ onSelect(aut){
 submit(){
 
   this.userName = this.user.user.name + ' '+this.user.user.lastname ;
-  this.corpss.corps= this.corp;
-  this.message.addComment(this.userName,this.idArt,this.corpss).subscribe(file => {
+  this.corpss.corp= this.corp;
+  this.message.addComment(this.idDest,this.user.id,this.corpss).subscribe(file => {
     console.log(file);
     console.log(this.corpss);
     this.listermsg();
@@ -63,7 +63,7 @@ submit(){
 
 listermsg(){
 
-  this.message.listerComment( ).subscribe(file => {
+  this.message.listerComment(this.idDest,this.user.id ).subscribe(file => {
   this.message = file;
   console.log(file);
 

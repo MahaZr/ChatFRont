@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GesUserService } from 'src/app/shared/services/ges-user.service';
 import { LoginService } from 'src/app/shared/services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gestionutilisateur',
@@ -9,10 +10,10 @@ import { LoginService } from 'src/app/shared/services/login.service';
 })
 export class GestionutilisateurComponent implements OnInit {
 
-  constructor(private userServ : GesUserService, private auth : LoginService) { }
+  constructor(private userServ : GesUserService, private membre : LoginService,private routes : Router) { }
 
  public users ;
- public idAdmin;
+ public id;
 
   ngOnInit() {
 
@@ -24,14 +25,19 @@ this.getuserss();
 
   getuserss(){
 
-    this.idAdmin = this.auth.getUser().user._id;
+    this.id = this.membre.userrr.user._id;
+    
 
-    this.userServ.getUsers(this.idAdmin).subscribe(file => {
+    this.userServ.getUsers(this.id).subscribe(file => {
       this.users = file;
     })
 
   }
 
+chat()
+{
+  this.routes.navigate(['/message']);
+}
   
 
  

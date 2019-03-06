@@ -27,20 +27,19 @@ export class LoginComponent implements OnInit {
     
     console.log(this.user);
     this.logUser.ApiLogin(this.user).subscribe(res=>{
-           localStorage.setItem('token',res.json().token);
-           localStorage.setItem('admin',res.json().admin);
-          console.log(res.json());
+      localStorage.setItem('token', res.json().token);
+      console.log(this.logUser.userrr);
 
 
 
-          console.log(localStorage.getItem('admin'));
-          
-         // console.log(this.userss);
-          
-          this.routes.navigate(['/home']);
 
-      })
-}
+
+      // console.log(this.userss);
+
+      this.routes.navigate(['/guser']);
+
+    })
+  }
 }
 
 

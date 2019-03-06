@@ -11,7 +11,7 @@ export class GesUserService {
 
 
   public getUsers(idUser){
-    return this.http.get('http://localhost:3001/dash/listerUser/'+idUser);
+    return this.http.get('http://localhost:3003/user/listerUser/'+idUser);
   }
 
   

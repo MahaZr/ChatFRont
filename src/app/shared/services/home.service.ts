@@ -8,8 +8,8 @@ export class HomeService {
 
   constructor(private http : Http) { }
 
-  public home(auth:string){
-    return this.http.get('http://localhost:3001/home/home/'+auth);
+  // public home(auth:string){
+  //   return this.http.get('http://localhost:3003/home/home/'+auth);
     
-  }
+  // }
 }

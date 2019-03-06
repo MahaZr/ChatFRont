@@ -9,6 +9,6 @@ export class RegisterService {
 
   constructor(private http: Http) {}
   public ApiRegister(user){
-    return this.http.post('http://localhost:3001/register/register', user);
+    return this.http.post('http://localhost:3003/register/register', user);
   }
 }
