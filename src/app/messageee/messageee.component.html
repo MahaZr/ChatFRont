@@ -2,13 +2,13 @@
 <!--haka lazmou yji-->
 <div class="container">
 
-  
+
   <h5>Leave a Comment:</h5>
 
 
   <textarea class="form-control" rows="3" [(ngModel)]="corp"></textarea>
 
-  <button class="btn btn-primary btn-md float-right" (click)="submit()">comment</button>
+  <button class="btn btn-primary btn-md float-right" (click)="submit()">envoyer</button>
 
   <ul class="list-group">
     <div *ngFor="let comment of comments">
@@ -19,24 +19,17 @@
             <h5 class="mt-0">{{comment.IdUser}}</h5>
             <p>
               <span class="badge badge-pill badge-secondary">{{comment.date}}</span>{{comment.corps}}</p>
-            <button class="btn btn-secondary btn-md float-right" (click)="update" *ngIf= "user.user.admin || (user.user.name +' '+user.user.lastname)==comment.IdUser">Modifier</button>
-            <button class="btn btn-danger btn-md float-right" (click)="delete()" *ngIf= "user.user.admin || (user.user.name +' '+user.user.lastname)==comment.IdUser">Delete</button>
+            <button class="btn btn-secondary btn-md float-right" (click)="update"
+              *ngIf="user.user.admin || (user.user.name +' '+user.user.lastname)==comment.IdUser">Modifier</button>
+            <button class="btn btn-danger btn-md float-right" (click)="delete()"
+              *ngIf="user.user.admin || (user.user.name +' '+user.user.lastname)==comment.IdUser">Delete</button>
           </div>
         </div>
       </li>
     </div>
   </ul>
 
-
-
-
-
-
-
-
-
 </div>
 
-</div>
+
 <!-- /.container -->
-</div>
